@@ -39,3 +39,8 @@ jobs:
           ${{github.workspace}}/build/${{env.BUILD_TYPE}}/*.exe
           ${{github.workspace}}/build/${{env.BUILD_TYPE}}/*.dll
           ${{github.workspace}}/build/${{env.BUILD_TYPE}}/*.pdb
+        # Optional inputs as per v4
+        if-no-files-found: warn  # Change to 'error' if you want the action to fail when no files are found
+        compression-level: 6    # Adjust the compression level if needed, 0 for no compression, 9 for max compression
+        retention-days: 90     # Optional: Adjust the retention period
+        overwrite: true         # Optional: Set to 'true' if you want to overwrite the artifact with the same name
