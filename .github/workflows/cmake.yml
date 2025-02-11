@@ -30,14 +30,12 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-      
 
     - name: Archive build artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: StellarStellaris Executables
         path: |
           ${{github.workspace}}/build/${{env.BUILD_TYPE}}/*.exe
           ${{github.workspace}}/build/${{env.BUILD_TYPE}}/*.dll
           ${{github.workspace}}/build/${{env.BUILD_TYPE}}/*.pdb
-      
